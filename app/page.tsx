@@ -106,6 +106,9 @@ export default function Home() {
               <FadeIn delay={0.29}>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
                   <a href="mailto:jiseung0603@gmail.com" className="btn-primary">Get in Touch</a>
+                  <a href="/cv_hjs.pdf" download="CV_JiseungHong.pdf" className="btn-secondary">
+                    CV ↓
+                  </a>
                   <a href="https://github.com/Hongjiseung-ROK" target="_blank" rel="noopener noreferrer" className="btn-secondary">
                     GitHub <ExtIcon />
                   </a>
