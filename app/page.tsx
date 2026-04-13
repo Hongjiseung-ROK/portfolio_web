@@ -291,9 +291,6 @@ export default function Home() {
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "5px 18px", marginBottom: 32 }}>
             <span style={{ fontSize: 14, color: "#6e6e73" }}>SQL AI Agent · Azure OpenAI · FastAPI · Next.js</span>
-            <a href="https://github.com/Hongjiseung-ROK/LABIT" target="_blank" rel="noopener noreferrer" className="link-ext">
-              github <ExtIcon />
-            </a>
           </div>
         </FadeIn>
 
