@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 
 const NAV_LINKS = [
-  { label: "Research", href: "#research" },
   { label: "Education", href: "#education" },
+  { label: "Research", href: "#research" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
 ];

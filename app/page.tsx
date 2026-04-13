@@ -117,21 +117,70 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ══ EDUCATION ══ */}
+      <section id="education" style={{ maxWidth: 960, margin: "0 auto", padding: "80px 24px 72px" }}>
+        <FadeIn><Label>Education</Label></FadeIn>
+        <FadeIn delay={0.05}>
+          <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
+            <div>
+              <h3 style={{ fontSize: 20, fontWeight: 600, color: "#1d1d1f", letterSpacing: "-0.01em", marginBottom: 4 }}>Dongguk University</h3>
+              <p style={{ fontSize: 15, color: "#6e6e73", marginBottom: 18 }}>B.S. in Chemistry, Seoul</p>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 8, flexWrap: "wrap" }}>
+                <span style={{ fontSize: 22, fontWeight: 700, color: "#1d1d1f", letterSpacing: "-0.02em" }}>4.22 / 4.5</span>
+                <span style={{ fontSize: 14, color: "#6e6e73" }}>GPA</span>
+                <span style={{ fontSize: 14, color: "#c7c7cc" }}>·</span>
+                <span style={{ fontSize: 14, color: "#6e6e73" }}>Major: 4.31</span>
+              </div>
+            </div>
+            <div style={{ textAlign: "right" }}>
+              <p style={{ fontSize: 14, color: "#6e6e73" }}>Mar. 2021 – present</p>
+              <p style={{ fontSize: 13, color: "#8e8e93", marginTop: 2 }}>~6th semester</p>
+            </div>
+          </div>
+        </FadeIn>
+      </section>
+
+      <Divider />
+
       {/* ══ RESEARCH INTERESTS ══ */}
       <section style={{ maxWidth: 960, margin: "0 auto", padding: "96px 24px" }}>
         <FadeIn><Label>Research Interests</Label></FadeIn>
-        <div className="interest-grid">
-          {[
-            { title: "Computational Chemistry", body: "Automating and accelerating molecular DFT calculations through programmable pipelines." },
-            { title: "Molecular ML", body: "Learning chemical representations from molecular graph and sequence data." },
-          ].map((card, i) => (
-            <FadeIn key={card.title} delay={0.06 + i * 0.08}>
-              <div style={{ background: "#f5f5f7", borderRadius: 18, padding: "28px 26px" }}>
-                <h3 style={{ fontSize: 16, fontWeight: 600, color: "#1d1d1f", marginBottom: 10 }}>{card.title}</h3>
-                <p style={{ fontSize: 15, color: "#6e6e73", lineHeight: 1.6 }}>{card.body}</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+
+          <FadeIn delay={0.06}>
+            <div style={{ background: "#f5f5f7", borderRadius: 18, padding: "32px 30px" }}>
+              <h3 style={{ fontSize: 17, fontWeight: 600, color: "#1d1d1f", marginBottom: 14 }}>Computational Chemistry</h3>
+              <p style={{ fontSize: 15, color: "#3a3a3c", lineHeight: 1.75, marginBottom: 16 }}>
+                I build automated pipelines that bridge cheminformatics and quantum chemistry — taking a SMILES string all the way through RDKit conformer generation (ETKDGv3 + MMFF94 force-field relaxation), automated Gaussian 09 input writing, and DFT geometry optimization or QST2 transition-state search, with cclib parsing the output for downstream use.
+              </p>
+              <p style={{ fontSize: 15, color: "#3a3a3c", lineHeight: 1.75, marginBottom: 20 }}>
+                My current focus is SN2 reaction kinetics: systematically varying nucleophile type, steric bulk, and electronic effects across 18 reactions at the B3LYP/6-31+G(d) level to harvest SCF energies, frontier orbital levels, vibrational frequencies, and Mulliken charges as features for predictive models.
+              </p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }}>
+                {["RDKit · ETKDGv3", "Gaussian 09", "B3LYP/6-31+G(d)", "QST2 TS Search", "cclib", "ASE"].map((t) => (
+                  <span key={t} style={{ fontSize: 12, fontWeight: 500, color: "#1d1d1f", background: "#fff", border: "1px solid #d2d2d7", padding: "4px 11px", borderRadius: 9999 }}>{t}</span>
+                ))}
               </div>
-            </FadeIn>
-          ))}
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.14}>
+            <div style={{ background: "#f5f5f7", borderRadius: 18, padding: "32px 30px" }}>
+              <h3 style={{ fontSize: 17, fontWeight: 600, color: "#1d1d1f", marginBottom: 14 }}>Molecular Machine Learning</h3>
+              <p style={{ fontSize: 15, color: "#3a3a3c", lineHeight: 1.75, marginBottom: 16 }}>
+                I develop ML models that learn from molecular structure to predict or accelerate quantum-chemical quantities. In the small-molecule domain, I apply a delta-learning formulation — training gradient boosting on the DFT − MMFF residual rather than absolute bond lengths — which reduces 5-fold CV MAE to 0.0022 Å and cuts Gaussian convergence cost by correcting MMFF starting geometries before DFT runs.
+              </p>
+              <p style={{ fontSize: 15, color: "#3a3a3c", lineHeight: 1.75, marginBottom: 20 }}>
+                In the protein domain, I fuse ESM-2 (650 M parameters) sequence embeddings with a 7-rank NCBI taxonomic hierarchy via cross-attention and LoRA fine-tuning, targeting GO term annotation at the CAFA benchmark. The design uses Asymmetric Focal Loss with information-content weighting to handle the extreme label sparsity of functional annotations.
+              </p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }}>
+                {["Delta Learning", "GradientBoosting", "ESM-2 650M", "Cross-Attention", "LoRA", "Asymmetric Focal Loss", "GO Annotation"].map((t) => (
+                  <span key={t} style={{ fontSize: 12, fontWeight: 500, color: "#1d1d1f", background: "#fff", border: "1px solid #d2d2d7", padding: "4px 11px", borderRadius: 9999 }}>{t}</span>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
+
         </div>
       </section>
 
@@ -192,31 +241,6 @@ export default function Home() {
         <FadeIn delay={0.45}>
           <div style={{ marginTop: 44 }}>
             <SlideViewer />
-          </div>
-        </FadeIn>
-      </section>
-
-      <Divider />
-
-      {/* ══ EDUCATION ══ */}
-      <section id="education" style={{ maxWidth: 960, margin: "0 auto", padding: "96px 24px" }}>
-        <FadeIn><Label>Education</Label></FadeIn>
-        <FadeIn delay={0.05}>
-          <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
-            <div>
-              <h3 style={{ fontSize: 20, fontWeight: 600, color: "#1d1d1f", letterSpacing: "-0.01em", marginBottom: 4 }}>Dongguk University</h3>
-              <p style={{ fontSize: 15, color: "#6e6e73", marginBottom: 18 }}>B.S. in Chemistry, Seoul</p>
-              <div style={{ display: "flex", alignItems: "baseline", gap: 8, flexWrap: "wrap" }}>
-                <span style={{ fontSize: 22, fontWeight: 700, color: "#1d1d1f", letterSpacing: "-0.02em" }}>4.22 / 4.5</span>
-                <span style={{ fontSize: 14, color: "#6e6e73" }}>GPA</span>
-                <span style={{ fontSize: 14, color: "#c7c7cc" }}>·</span>
-                <span style={{ fontSize: 14, color: "#6e6e73" }}>Major: 4.31</span>
-              </div>
-            </div>
-            <div style={{ textAlign: "right" }}>
-              <p style={{ fontSize: 14, color: "#6e6e73" }}>Mar. 2021 – present</p>
-              <p style={{ fontSize: 13, color: "#8e8e93", marginTop: 2 }}>~6th semester</p>
-            </div>
           </div>
         </FadeIn>
       </section>
