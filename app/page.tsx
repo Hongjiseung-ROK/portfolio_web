@@ -2,6 +2,7 @@ import Image from "next/image";
 import Nav from "./components/Nav";
 import FadeIn from "./components/FadeIn";
 import SlideViewer from "./components/SlideViewer";
+import PhotoGrid from "./components/PhotoGrid";
 
 /* ════════════════════════════
    BACKGROUND — hex dot lattice
@@ -318,32 +319,10 @@ export default function Home() {
 
         {/* Two photos side by side */}
         <FadeIn delay={0.42}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-            <div style={{ borderRadius: 16, overflow: "hidden", border: "1px solid #e8e8ed" }}>
-              <Image
-                src="/labit_presentation.jpg"
-                alt="Presenting LABIT SQL AI Agent at Microsoft AI School"
-                width={800}
-                height={600}
-                style={{ width: "100%", height: 260, objectFit: "cover", display: "block" }}
-              />
-              <div style={{ padding: "12px 16px", background: "#f5f5f7", borderTop: "1px solid #e8e8ed" }}>
-                <p style={{ fontSize: 13, color: "#6e6e73" }}>Presenting the total pipeline at Microsoft AI School final</p>
-              </div>
-            </div>
-            <div style={{ borderRadius: 16, overflow: "hidden", border: "1px solid #e8e8ed" }}>
-              <Image
-                src="/labit_award.jpg"
-                alt="1st place award at Microsoft AI School"
-                width={800}
-                height={600}
-                style={{ width: "100%", height: 260, objectFit: "cover", objectPosition: "center 20%", display: "block" }}
-              />
-              <div style={{ padding: "12px 16px", background: "#f5f5f7", borderTop: "1px solid #e8e8ed" }}>
-                <p style={{ fontSize: 13, color: "#6e6e73" }}>1st place — Microsoft AI School Results Sharing Session</p>
-              </div>
-            </div>
-          </div>
+          <PhotoGrid photos={[
+            { src: "/labit_presentation.jpg", alt: "Presenting LABIT SQL AI Agent", caption: "Presenting the total pipeline at Microsoft AI School final", width: 800, height: 600 },
+            { src: "/labit_award.jpg", alt: "1st place award at Microsoft AI School", caption: "1st place — Microsoft AI School Results Sharing Session", width: 800, height: 600 },
+          ]} />
         </FadeIn>
       </section>
 
