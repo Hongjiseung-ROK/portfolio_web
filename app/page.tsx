@@ -333,7 +333,10 @@ export default function Home() {
           <p style={{ fontSize: 13, color: "#8e8e93" }}>© 2026 Jiseung Hong</p>
           <div style={{ display: "flex", gap: 24 }}>
             <a href="mailto:jiseung0603@gmail.com" className="link-footer">jiseung0603@gmail.com</a>
-            <a href="https://github.com/Hongjiseung-ROK" target="_blank" rel="noopener noreferrer" className="link-footer">GitHub <ExtIcon /></a>
+            <a href="https://github.com/Hongjiseung-ROK" target="_blank" rel="noopener noreferrer"
+              style={{ display: "flex", alignItems: "center", opacity: 0.5, transition: "opacity 0.2s" }}>
+              <Image src="/github.png" alt="GitHub" width={20} height={20} style={{ display: "block" }} />
+            </a>
           </div>
         </div>
       </footer>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Education", href: "#education" },
@@ -39,8 +40,12 @@ export default function Nav() {
           {NAV_LINKS.map((link) => (
             <a key={link.href} href={link.href} className="nav-link">{link.label}</a>
           ))}
-          <a href="https://github.com/Hongjiseung-ROK" target="_blank" rel="noopener noreferrer" className="nav-cta">
-            GitHub ↗
+          <a href="https://github.com/Hongjiseung-ROK" target="_blank" rel="noopener noreferrer"
+            style={{ display: "flex", alignItems: "center", opacity: 1, transition: "opacity 0.2s" }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.55")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+          >
+            <Image src="/github.png" alt="GitHub" width={22} height={22} style={{ display: "block" }} />
           </a>
         </div>
       </nav>
