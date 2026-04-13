@@ -152,29 +152,19 @@ export default function Home() {
 
           <FadeIn delay={0.06}>
             <div style={{ background: "#f5f5f7", borderRadius: 18, padding: "28px 28px" }}>
-              <h3 style={{ fontSize: 17, fontWeight: 600, color: "#1d1d1f", marginBottom: 12 }}>Computational Chemistry</h3>
-              <p style={{ fontSize: 15, color: "#3a3a3c", lineHeight: 1.7, marginBottom: 18 }}>
-                Automating quantum chemistry workflows — SMILES → ETKDGv3/MMFF94 conformer generation → Gaussian 09 DFT optimization and QST2 transition-state search. Currently focused on SN2 reaction kinetics at the B3LYP/6-31+G(d) level, extracting SCF energies, orbital levels, and Mulliken charges as ML features.
+              <h3 style={{ fontSize: 17, fontWeight: 600, color: "#1d1d1f", marginBottom: 10 }}>Computational Chemistry</h3>
+              <p style={{ fontSize: 15, color: "#6e6e73", lineHeight: 1.7 }}>
+                How can we make quantum chemical calculations faster and more accessible? I am interested in automating DFT workflows and reducing the computational cost of molecular geometry optimization.
               </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }}>
-                {["RDKit", "Gaussian 09", "B3LYP/6-31+G(d)", "QST2", "cclib", "ASE"].map((t) => (
-                  <span key={t} style={{ fontSize: 12, fontWeight: 500, color: "#1d1d1f", background: "#fff", border: "1px solid #d2d2d7", padding: "4px 11px", borderRadius: 9999 }}>{t}</span>
-                ))}
-              </div>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.14}>
             <div style={{ background: "#f5f5f7", borderRadius: 18, padding: "28px 28px" }}>
-              <h3 style={{ fontSize: 17, fontWeight: 600, color: "#1d1d1f", marginBottom: 12 }}>Molecular Machine Learning</h3>
-              <p style={{ fontSize: 15, color: "#3a3a3c", lineHeight: 1.7, marginBottom: 18 }}>
-                Applying delta-learning to correct MMFF→DFT bond length errors with gradient boosting (CV MAE 0.0022 Å), and fusing ESM-2 protein embeddings with NCBI taxonomic hierarchy via cross-attention and LoRA for GO term prediction — using Asymmetric Focal Loss to handle label sparsity.
+              <h3 style={{ fontSize: 17, fontWeight: 600, color: "#1d1d1f", marginBottom: 10 }}>Molecular Machine Learning</h3>
+              <p style={{ fontSize: 15, color: "#6e6e73", lineHeight: 1.7 }}>
+                How do we learn meaningful chemical representations from molecular structure and sequence? I am interested in models that bridge physics-based simulations and data-driven prediction.
               </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }}>
-                {["Delta Learning", "GradientBoosting", "ESM-2 650M", "Cross-Attention", "LoRA", "GO Annotation"].map((t) => (
-                  <span key={t} style={{ fontSize: 12, fontWeight: 500, color: "#1d1d1f", background: "#fff", border: "1px solid #d2d2d7", padding: "4px 11px", borderRadius: 9999 }}>{t}</span>
-                ))}
-              </div>
             </div>
           </FadeIn>
 
