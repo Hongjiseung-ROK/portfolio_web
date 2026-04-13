@@ -1,65 +1,321 @@
 import Image from "next/image";
+import Nav from "./components/Nav";
+import FadeIn from "./components/FadeIn";
+import SlideViewer from "./components/SlideViewer";
 
+/* ════════════════════════════
+   BACKGROUND — hex dot lattice
+════════════════════════════ */
+function HexDots() {
+  return (
+    <svg aria-hidden style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", opacity: 0.042 }}>
+      <defs>
+        <pattern id="hd" x="0" y="0" width="30" height="26" patternUnits="userSpaceOnUse">
+          <circle cx="0"  cy="0"  r="1.3" fill="#1d1d1f" />
+          <circle cx="30" cy="0"  r="1.3" fill="#1d1d1f" />
+          <circle cx="15" cy="13" r="1.3" fill="#1d1d1f" />
+          <circle cx="0"  cy="26" r="1.3" fill="#1d1d1f" />
+          <circle cx="30" cy="26" r="1.3" fill="#1d1d1f" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#hd)" />
+    </svg>
+  );
+}
+
+/* ════════════════════════════
+   SHARED ATOMS
+════════════════════════════ */
+function ExtIcon() {
+  return (
+    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
+      style={{ display: "inline-block", marginLeft: 2, marginBottom: 1 }}>
+      <path d="M1.5 8.5L8.5 1.5M8.5 1.5H3.5M8.5 1.5V6.5"
+        stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function Label({ children }: { children: React.ReactNode }) {
+  return (
+    <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#6e6e73", marginBottom: 40 }}>
+      {children}
+    </p>
+  );
+}
+
+function Divider() {
+  return (
+    <div style={{ maxWidth: 960, margin: "0 auto", padding: "0 24px" }}>
+      <hr style={{ border: "none", borderTop: "1px solid #e8e8ed" }} />
+    </div>
+  );
+}
+
+function Bullet({ text }: { text: string }) {
+  return (
+    <div style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
+      <span style={{ marginTop: 9, width: 5, height: 5, borderRadius: "50%", background: "#0071e3", flexShrink: 0, display: "block" }} />
+      <p style={{ fontSize: 16, color: "#1d1d1f", lineHeight: 1.65 }}>{text}</p>
+    </div>
+  );
+}
+
+/* ════════════════════════════
+   PAGE
+════════════════════════════ */
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div style={{ background: "#fff", minHeight: "100vh" }}>
+      <Nav />
+
+      {/* ══ HERO ══ */}
+      <section style={{ position: "relative", overflow: "hidden", minHeight: "100vh", display: "flex", alignItems: "center" }}>
+        <HexDots />
+        <div style={{ position: "relative", zIndex: 1, maxWidth: 960, margin: "0 auto", padding: "80px 24px 64px", width: "100%" }}>
+          <div className="hero-grid">
+
+            {/* Photo */}
+            <FadeIn delay={0.12}>
+              <div style={{ borderRadius: 16, overflow: "hidden", width: 180, aspectRatio: "3/4", border: "1px solid #e8e8ed", boxShadow: "0 8px 32px rgba(0,0,0,0.09)" }}>
+                <Image src="/cv_hongjs.png" alt="Jiseung Hong" width={520} height={693} priority
+                  style={{ objectFit: "cover", objectPosition: "center 10%", width: "100%", height: "100%" }} />
+              </div>
+            </FadeIn>
+
+            {/* Text */}
+            <div>
+              <FadeIn delay={0.05}>
+                <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#6e6e73", marginBottom: 20 }}>
+                  Computational Chemistry · Molecular ML
+                </p>
+              </FadeIn>
+              <FadeIn delay={0.15}>
+                <h1 style={{ fontSize: "clamp(52px, 7.5vw, 84px)", fontWeight: 700, lineHeight: 0.95, letterSpacing: "-0.035em", color: "#1d1d1f", marginBottom: 24 }}>
+                  Jiseung<br />Hong
+                </h1>
+              </FadeIn>
+              <FadeIn delay={0.22}>
+                <p style={{ fontSize: 17, color: "#6e6e73", lineHeight: 1.65, maxWidth: 400, marginBottom: 12 }}>
+                  Undergraduate researcher at Dongguk University,
+                </p>
+                <p style={{ fontSize: 17, color: "#6e6e73", lineHeight: 1.65, maxWidth: 400, marginBottom: 32 }}>
+                  building tools at the intersection of quantum chemistry and machine learning.
+                </p>
+              </FadeIn>
+              <FadeIn delay={0.29}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+                  <a href="mailto:jiseung0603@gmail.com" className="btn-primary">Get in Touch</a>
+                  <a href="https://github.com/Hongjiseung-ROK" target="_blank" rel="noopener noreferrer" className="btn-secondary">
+                    GitHub <ExtIcon />
+                  </a>
+                </div>
+              </FadeIn>
+            </div>
+
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      </section>
+
+      {/* ══ RESEARCH INTERESTS ══ */}
+      <section style={{ maxWidth: 960, margin: "0 auto", padding: "96px 24px" }}>
+        <FadeIn><Label>Research Interests</Label></FadeIn>
+        <div className="interest-grid">
+          {[
+            { title: "Computational Chemistry", body: "Automating and accelerating molecular DFT calculations through programmable pipelines." },
+            { title: "Molecular ML", body: "Learning chemical representations from molecular graph and sequence data." },
+          ].map((card, i) => (
+            <FadeIn key={card.title} delay={0.06 + i * 0.08}>
+              <div style={{ background: "#f5f5f7", borderRadius: 18, padding: "28px 26px" }}>
+                <h3 style={{ fontSize: 16, fontWeight: 600, color: "#1d1d1f", marginBottom: 10 }}>{card.title}</h3>
+                <p style={{ fontSize: 15, color: "#6e6e73", lineHeight: 1.6 }}>{card.body}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+
+      <Divider />
+
+      {/* ══ RESEARCH ══ */}
+      <section id="research" style={{ maxWidth: 960, margin: "0 auto", padding: "96px 24px" }}>
+        <FadeIn><Label>Research</Label></FadeIn>
+
+        <FadeIn delay={0.05}>
+          {/* Title row */}
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-start", gap: 12, marginBottom: 10 }}>
+            <h2 style={{ fontSize: 24, fontWeight: 600, letterSpacing: "-0.02em", color: "#1d1d1f" }}>
+              SMILES → Gaussian Automation &amp; Delta Learning
+            </h2>
+            <span style={{ fontSize: 13, color: "#8e8e93", flexShrink: 0, paddingTop: 4 }}>Mar. 2026</span>
+          </div>
+          {/* Meta */}
+          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "5px 18px", marginBottom: 32 }}>
+            <span style={{ fontSize: 14, color: "#6e6e73" }}>Undergraduate Researcher · EMS Lab, DGU</span>
+            <a href="https://github.com/Hongjiseung-ROK/rdkit-gaussian-pipeline" target="_blank" rel="noopener noreferrer" className="link-ext">
+              pipeline <ExtIcon />
+            </a>
+            <a href="https://github.com/Hongjiseung-ROK/delta_opt_learning" target="_blank" rel="noopener noreferrer" className="link-ext">
+              delta learning <ExtIcon />
+            </a>
+          </div>
+        </FadeIn>
+
+        {/* Bullets */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 18, marginBottom: 36 }}>
+          {[
+            "Used RDKit and Gaussian 09 to automate 3D conformer generation and QST2 transition-state calculations for 18 SN2 reactions.",
+            "Trained a Gradient Boosting model to correct MMFF→DFT bond lengths using RDKit-derived features (1,793 molecules).",
+            "Delta formulation reduced 5-fold CV MAE to 0.0022 Å — a 16% improvement over absolute regression.",
+          ].map((text, i) => (
+            <FadeIn key={i} delay={0.1 + i * 0.07}><Bullet text={text} /></FadeIn>
+          ))}
+        </div>
+
+        {/* Stats */}
+        <FadeIn delay={0.35}>
+          <div className="stat-grid">
+            {[
+              { value: "18",    label: "SN2 reactions automated" },
+              { value: "1,793", label: "molecules in dataset" },
+              { value: "16%",   label: "bond MAE reduction" },
+            ].map((s) => (
+              <div key={s.label} style={{ background: "#f5f5f7", borderRadius: 14, padding: "18px 16px" }}>
+                <p style={{ fontSize: 26, fontWeight: 700, color: "#1d1d1f", letterSpacing: "-0.03em", lineHeight: 1, marginBottom: 5 }}>{s.value}</p>
+                <p style={{ fontSize: 11, color: "#6e6e73", lineHeight: 1.4 }}>{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </FadeIn>
+
+        {/* Slides */}
+        <FadeIn delay={0.45}>
+          <div style={{ marginTop: 44 }}>
+            <SlideViewer />
+          </div>
+        </FadeIn>
+      </section>
+
+      <Divider />
+
+      {/* ══ PROJECTS ══ */}
+      <section id="projects" style={{ maxWidth: 960, margin: "0 auto", padding: "96px 24px" }}>
+        <FadeIn><Label>Academic Projects</Label></FadeIn>
+
+        <FadeIn delay={0.05}>
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-start", gap: 12, marginBottom: 10 }}>
+            <h2 style={{ fontSize: 24, fontWeight: 600, letterSpacing: "-0.02em", color: "#1d1d1f" }}>
+              Taxonomy-Aware ESM-2
+            </h2>
+            <span style={{ fontSize: 13, color: "#8e8e93", flexShrink: 0, paddingTop: 4 }}>Nov. 2025</span>
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "5px 18px", marginBottom: 32 }}>
+            <span style={{ fontSize: 14, color: "#6e6e73" }}>Algorithm Design &amp; Feature Engineering · Protein Function Prediction</span>
+            <a href="https://github.com/Hongjiseung-ROK/taxonomy_aware_ESM2" target="_blank" rel="noopener noreferrer" className="link-ext">
+              github <ExtIcon />
+            </a>
+          </div>
+        </FadeIn>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: 18, marginBottom: 32 }}>
+          {[
+            "Encoded NCBI taxonomy (7 ranks) and GO hierarchy as ML features; used GO ancestor propagation for biologically consistent labels.",
+            "Fused taxonomy embeddings with ESM-2 via cross-attention; trained with Asymmetric Loss and LoRA.",
+          ].map((text, i) => (
+            <FadeIn key={i} delay={0.1 + i * 0.07}><Bullet text={text} /></FadeIn>
+          ))}
+        </div>
+
+        <FadeIn delay={0.28}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 7, marginBottom: 32 }}>
+            {["ESM-2 650M", "Cross-Attention", "LoRA", "Asymmetric Loss", "GO Propagation", "NCBI Taxonomy"].map((tag) => (
+              <span key={tag} style={{ fontSize: 12, fontWeight: 500, color: "#1d1d1f", background: "#f5f5f7", border: "1px solid #e8e8ed", padding: "5px 12px", borderRadius: 9999 }}>
+                {tag}
+              </span>
+            ))}
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.36}>
+          <div style={{ borderRadius: 16, overflow: "hidden", border: "1px solid #e8e8ed" }}>
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/presentation.jpg"
+              alt="Presenting Taxonomy-Aware ESM-2"
+              width={960}
+              height={540}
+              style={{ width: "100%", height: "auto", display: "block" }}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <div style={{ padding: "14px 20px", background: "#f5f5f7", borderTop: "1px solid #e8e8ed" }}>
+              <p style={{ fontSize: 13, color: "#6e6e73" }}>
+                Presenting Taxonomy-Aware ESM-2 at a seminar, Nov. 2025
+              </p>
+            </div>
+          </div>
+        </FadeIn>
+      </section>
+
+      <Divider />
+
+      {/* ══ SKILLS ══ */}
+      <section id="skills" style={{ maxWidth: 960, margin: "0 auto", padding: "96px 24px" }}>
+        <FadeIn><Label>Skills</Label></FadeIn>
+        <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+          {[
+            { label: "Programming", tags: ["Python", "RDKit", "scikit-learn", "ASE", "PyTorch", "LaTeX"] },
+            { label: "Simulation",  tags: ["Gaussian 09", "ORCA"] },
+            { label: "Languages",   tags: ["Korean — native", "English — proficient"] },
+          ].map((group, i) => (
+            <FadeIn key={group.label} delay={i * 0.08}>
+              <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px 16px" }}>
+                <span style={{ fontSize: 13, fontWeight: 500, color: "#6e6e73", width: 96, flexShrink: 0 }}>{group.label}</span>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }}>
+                  {group.tags.map((tag) => (
+                    <span key={tag} style={{ fontSize: 13, fontWeight: 500, color: "#1d1d1f", background: "#f5f5f7", border: "1px solid #e8e8ed", padding: "5px 13px", borderRadius: 9999 }}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </FadeIn>
+          ))}
         </div>
-      </main>
+      </section>
+
+      <Divider />
+
+      {/* ══ EDUCATION ══ */}
+      <section id="education" style={{ maxWidth: 960, margin: "0 auto", padding: "96px 24px" }}>
+        <FadeIn><Label>Education</Label></FadeIn>
+        <FadeIn delay={0.05}>
+          <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
+            <div>
+              <h3 style={{ fontSize: 20, fontWeight: 600, color: "#1d1d1f", letterSpacing: "-0.01em", marginBottom: 4 }}>Dongguk University</h3>
+              <p style={{ fontSize: 15, color: "#6e6e73", marginBottom: 18 }}>B.S. in Chemistry, Seoul</p>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 8, flexWrap: "wrap" }}>
+                <span style={{ fontSize: 22, fontWeight: 700, color: "#1d1d1f", letterSpacing: "-0.02em" }}>4.22 / 4.5</span>
+                <span style={{ fontSize: 14, color: "#6e6e73" }}>GPA</span>
+                <span style={{ fontSize: 14, color: "#c7c7cc" }}>·</span>
+                <span style={{ fontSize: 14, color: "#6e6e73" }}>Major: 4.31</span>
+              </div>
+            </div>
+            <div style={{ textAlign: "right" }}>
+              <p style={{ fontSize: 14, color: "#6e6e73" }}>Mar. 2021 – present</p>
+              <p style={{ fontSize: 13, color: "#8e8e93", marginTop: 2 }}>~6th semester</p>
+            </div>
+          </div>
+        </FadeIn>
+      </section>
+
+      {/* ══ FOOTER ══ */}
+      <footer style={{ borderTop: "1px solid #e8e8ed" }}>
+        <div style={{ maxWidth: 960, margin: "0 auto", padding: "32px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+          <p style={{ fontSize: 13, color: "#8e8e93" }}>© 2026 Jiseung Hong</p>
+          <div style={{ display: "flex", gap: 24 }}>
+            <a href="mailto:jiseung0603@gmail.com" className="link-footer">jiseung0603@gmail.com</a>
+            <a href="https://github.com/Hongjiseung-ROK" target="_blank" rel="noopener noreferrer" className="link-footer">GitHub <ExtIcon /></a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

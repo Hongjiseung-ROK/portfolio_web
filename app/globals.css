@@ -1,26 +1,115 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Helvetica Neue", "Segoe UI", Arial, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  background: #fff;
+  color: #1d1d1f;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+::selection { background: #0071e3; color: #fff; }
+
+/* ─── Hero layout ─── */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 52px;
+}
+@media (min-width: 780px) {
+  .hero-grid { grid-template-columns: 200px 1fr; gap: 64px; }
+}
+
+/* ─── Two-column interest cards ─── */
+.interest-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 600px) {
+  .interest-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ─── Stat row ─── */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* ─── Nav ─── */
+.nav-links { display: none; align-items: center; gap: 24px; }
+@media (min-width: 600px) { .nav-links { display: flex; } }
+
+.nav-link { font-size: 13px; color: #6e6e73; text-decoration: none; transition: color 0.2s; }
+.nav-link:hover { color: #1d1d1f; }
+
+.nav-cta {
+  font-size: 13px; font-weight: 500; color: #fff;
+  background: #1d1d1f; padding: 6px 16px;
+  border-radius: 9999px; text-decoration: none; transition: background 0.2s;
+}
+.nav-cta:hover { background: #3a3a3c; }
+
+/* ─── Buttons ─── */
+.btn-primary {
+  display: inline-flex; align-items: center;
+  padding: 11px 22px; background: #0071e3; color: #fff;
+  font-size: 14px; font-weight: 500; border-radius: 9999px;
+  text-decoration: none; transition: background 0.2s;
+}
+.btn-primary:hover { background: #0077ed; }
+
+.btn-secondary {
+  display: inline-flex; align-items: center;
+  padding: 11px 22px; background: transparent; color: #1d1d1f;
+  font-size: 14px; font-weight: 500; border-radius: 9999px;
+  border: 1px solid #d2d2d7; text-decoration: none; transition: background 0.2s;
+}
+.btn-secondary:hover { background: #f5f5f7; }
+
+/* ─── Links ─── */
+.link-ext { font-size: 13px; font-weight: 500; color: #0071e3; text-decoration: none; transition: opacity 0.18s; }
+.link-ext:hover { opacity: 0.6; }
+
+.link-footer { font-size: 13px; color: #6e6e73; text-decoration: none; transition: color 0.2s; }
+.link-footer:hover { color: #1d1d1f; }
+
+/* ─── Slide stack ─── */
+.slide-stack {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px 0 32px;
+}
+.slide-stack-item {
+  flex-shrink: 0;
+  width: clamp(140px, 28vw, 260px);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(210,210,215,0.8);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.09), 0 1px 3px rgba(0,0,0,0.05);
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s;
+  position: relative;
+}
+.slide-stack-item + .slide-stack-item { margin-left: -48px; }
+.slide-stack-item:nth-child(1) { transform: rotate(-3deg) translateY(14px); z-index: 1; }
+.slide-stack-item:nth-child(2) { transform: rotate(-1deg) translateY(7px); z-index: 2; }
+.slide-stack-item:nth-child(3) { transform: rotate(1.5deg) translateY(3px); z-index: 3; }
+.slide-stack-item:nth-child(4) { transform: rotate(-0.5deg); z-index: 4; }
+.slide-stack-item:hover { transform: translateY(-14px) rotate(0deg); z-index: 10; box-shadow: 0 16px 48px rgba(0,0,0,0.16); }
+.slide-stack-btn { background: none; border: none; padding: 0; cursor: zoom-in; display: block; }
+@media (max-width: 600px) {
+  .slide-stack-item { width: clamp(100px, 22vw, 160px); }
+  .slide-stack-item + .slide-stack-item { margin-left: -28px; }
 }
