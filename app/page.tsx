@@ -275,6 +275,80 @@ export default function Home() {
 
       <Divider />
 
+      {/* ══ AI PROJECT ══ */}
+      <section id="ai-project" style={{ maxWidth: 960, margin: "0 auto", padding: "96px 24px" }}>
+        <FadeIn><Label>AI Project</Label></FadeIn>
+
+        <FadeIn delay={0.05}>
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-start", gap: 12, marginBottom: 10 }}>
+            <h2 style={{ fontSize: 24, fontWeight: 600, letterSpacing: "-0.02em", color: "#1d1d1f" }}>
+              LABIT — Lab Management AI Agent
+            </h2>
+            <span style={{ fontSize: 13, color: "#8e8e93", flexShrink: 0, paddingTop: 4 }}>
+              🏆 1st Place · Microsoft AI School
+            </span>
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "5px 18px", marginBottom: 32 }}>
+            <span style={{ fontSize: 14, color: "#6e6e73" }}>SQL AI Agent · Azure OpenAI · FastAPI · Next.js</span>
+            <a href="https://github.com/Hongjiseung-ROK/LABIT" target="_blank" rel="noopener noreferrer" className="link-ext">
+              github <ExtIcon />
+            </a>
+          </div>
+        </FadeIn>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: 18, marginBottom: 36 }}>
+          {[
+            "Built a conversational SQL agent using LangChain and Azure OpenAI (GPT-4o) that lets lab members query and manage experimental data in natural language — no SQL knowledge required.",
+            "The agent covers 7 lab domains: experiment records, reagent inventory, MSDS hazard lookup, cylinder fall detection, real-time sensor monitoring, and reagent disposal tracking.",
+            "Designed a read-only guard on protected tables via SQLAlchemy event listeners, and implemented intent-based sampling profiles (retrieval / reasoning / creative) with automatic fallback on latency spikes.",
+          ].map((text, i) => (
+            <FadeIn key={i} delay={0.1 + i * 0.07}><Bullet text={text} /></FadeIn>
+          ))}
+        </div>
+
+        <FadeIn delay={0.32}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 7, marginBottom: 36 }}>
+            {["Azure OpenAI", "GPT-4o", "LangChain", "FastAPI", "Azure SQL", "Next.js", "Few-Shot Prompting", "RAG"].map((tag) => (
+              <span key={tag} style={{ fontSize: 12, fontWeight: 500, color: "#1d1d1f", background: "#f5f5f7", border: "1px solid #e8e8ed", padding: "5px 12px", borderRadius: 9999 }}>
+                {tag}
+              </span>
+            ))}
+          </div>
+        </FadeIn>
+
+        {/* Two photos side by side */}
+        <FadeIn delay={0.42}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+            <div style={{ borderRadius: 16, overflow: "hidden", border: "1px solid #e8e8ed" }}>
+              <Image
+                src="/labit_presentation.jpg"
+                alt="Presenting LABIT SQL AI Agent at Microsoft AI School"
+                width={800}
+                height={600}
+                style={{ width: "100%", height: 260, objectFit: "cover", display: "block" }}
+              />
+              <div style={{ padding: "12px 16px", background: "#f5f5f7", borderTop: "1px solid #e8e8ed" }}>
+                <p style={{ fontSize: 13, color: "#6e6e73" }}>Presenting the total pipeline at Microsoft AI School final</p>
+              </div>
+            </div>
+            <div style={{ borderRadius: 16, overflow: "hidden", border: "1px solid #e8e8ed" }}>
+              <Image
+                src="/labit_award.jpg"
+                alt="1st place award at Microsoft AI School"
+                width={800}
+                height={600}
+                style={{ width: "100%", height: 260, objectFit: "cover", objectPosition: "center 20%", display: "block" }}
+              />
+              <div style={{ padding: "12px 16px", background: "#f5f5f7", borderTop: "1px solid #e8e8ed" }}>
+                <p style={{ fontSize: 13, color: "#6e6e73" }}>1st place — Microsoft AI School Results Sharing Session</p>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+      </section>
+
+      <Divider />
+
       {/* ══ SKILLS ══ */}
       <section id="skills" style={{ maxWidth: 960, margin: "0 auto", padding: "96px 24px" }}>
         <FadeIn><Label>Skills</Label></FadeIn>
