@@ -151,16 +151,13 @@ export default function Home() {
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
 
           <FadeIn delay={0.06}>
-            <div style={{ background: "#f5f5f7", borderRadius: 18, padding: "32px 30px" }}>
-              <h3 style={{ fontSize: 17, fontWeight: 600, color: "#1d1d1f", marginBottom: 14 }}>Computational Chemistry</h3>
-              <p style={{ fontSize: 15, color: "#3a3a3c", lineHeight: 1.75, marginBottom: 16 }}>
-                I build automated pipelines that bridge cheminformatics and quantum chemistry — taking a SMILES string all the way through RDKit conformer generation (ETKDGv3 + MMFF94 force-field relaxation), automated Gaussian 09 input writing, and DFT geometry optimization or QST2 transition-state search, with cclib parsing the output for downstream use.
-              </p>
-              <p style={{ fontSize: 15, color: "#3a3a3c", lineHeight: 1.75, marginBottom: 20 }}>
-                My current focus is SN2 reaction kinetics: systematically varying nucleophile type, steric bulk, and electronic effects across 18 reactions at the B3LYP/6-31+G(d) level to harvest SCF energies, frontier orbital levels, vibrational frequencies, and Mulliken charges as features for predictive models.
+            <div style={{ background: "#f5f5f7", borderRadius: 18, padding: "28px 28px" }}>
+              <h3 style={{ fontSize: 17, fontWeight: 600, color: "#1d1d1f", marginBottom: 12 }}>Computational Chemistry</h3>
+              <p style={{ fontSize: 15, color: "#3a3a3c", lineHeight: 1.7, marginBottom: 18 }}>
+                Automating quantum chemistry workflows — SMILES → ETKDGv3/MMFF94 conformer generation → Gaussian 09 DFT optimization and QST2 transition-state search. Currently focused on SN2 reaction kinetics at the B3LYP/6-31+G(d) level, extracting SCF energies, orbital levels, and Mulliken charges as ML features.
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }}>
-                {["RDKit · ETKDGv3", "Gaussian 09", "B3LYP/6-31+G(d)", "QST2 TS Search", "cclib", "ASE"].map((t) => (
+                {["RDKit", "Gaussian 09", "B3LYP/6-31+G(d)", "QST2", "cclib", "ASE"].map((t) => (
                   <span key={t} style={{ fontSize: 12, fontWeight: 500, color: "#1d1d1f", background: "#fff", border: "1px solid #d2d2d7", padding: "4px 11px", borderRadius: 9999 }}>{t}</span>
                 ))}
               </div>
@@ -168,16 +165,13 @@ export default function Home() {
           </FadeIn>
 
           <FadeIn delay={0.14}>
-            <div style={{ background: "#f5f5f7", borderRadius: 18, padding: "32px 30px" }}>
-              <h3 style={{ fontSize: 17, fontWeight: 600, color: "#1d1d1f", marginBottom: 14 }}>Molecular Machine Learning</h3>
-              <p style={{ fontSize: 15, color: "#3a3a3c", lineHeight: 1.75, marginBottom: 16 }}>
-                I develop ML models that learn from molecular structure to predict or accelerate quantum-chemical quantities. In the small-molecule domain, I apply a delta-learning formulation — training gradient boosting on the DFT − MMFF residual rather than absolute bond lengths — which reduces 5-fold CV MAE to 0.0022 Å and cuts Gaussian convergence cost by correcting MMFF starting geometries before DFT runs.
-              </p>
-              <p style={{ fontSize: 15, color: "#3a3a3c", lineHeight: 1.75, marginBottom: 20 }}>
-                In the protein domain, I fuse ESM-2 (650 M parameters) sequence embeddings with a 7-rank NCBI taxonomic hierarchy via cross-attention and LoRA fine-tuning, targeting GO term annotation at the CAFA benchmark. The design uses Asymmetric Focal Loss with information-content weighting to handle the extreme label sparsity of functional annotations.
+            <div style={{ background: "#f5f5f7", borderRadius: 18, padding: "28px 28px" }}>
+              <h3 style={{ fontSize: 17, fontWeight: 600, color: "#1d1d1f", marginBottom: 12 }}>Molecular Machine Learning</h3>
+              <p style={{ fontSize: 15, color: "#3a3a3c", lineHeight: 1.7, marginBottom: 18 }}>
+                Applying delta-learning to correct MMFF→DFT bond length errors with gradient boosting (CV MAE 0.0022 Å), and fusing ESM-2 protein embeddings with NCBI taxonomic hierarchy via cross-attention and LoRA for GO term prediction — using Asymmetric Focal Loss to handle label sparsity.
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }}>
-                {["Delta Learning", "GradientBoosting", "ESM-2 650M", "Cross-Attention", "LoRA", "Asymmetric Focal Loss", "GO Annotation"].map((t) => (
+                {["Delta Learning", "GradientBoosting", "ESM-2 650M", "Cross-Attention", "LoRA", "GO Annotation"].map((t) => (
                   <span key={t} style={{ fontSize: 12, fontWeight: 500, color: "#1d1d1f", background: "#fff", border: "1px solid #d2d2d7", padding: "4px 11px", borderRadius: 9999 }}>{t}</span>
                 ))}
               </div>
