@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 
 const NAV_LINKS = [
   { label: "Research", href: "#research" },
+  { label: "Education", href: "#education" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
-  { label: "Education", href: "#education" },
 ];
 
 export default function Nav() {

@@ -198,6 +198,31 @@ export default function Home() {
 
       <Divider />
 
+      {/* ══ EDUCATION ══ */}
+      <section id="education" style={{ maxWidth: 960, margin: "0 auto", padding: "96px 24px" }}>
+        <FadeIn><Label>Education</Label></FadeIn>
+        <FadeIn delay={0.05}>
+          <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
+            <div>
+              <h3 style={{ fontSize: 20, fontWeight: 600, color: "#1d1d1f", letterSpacing: "-0.01em", marginBottom: 4 }}>Dongguk University</h3>
+              <p style={{ fontSize: 15, color: "#6e6e73", marginBottom: 18 }}>B.S. in Chemistry, Seoul</p>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 8, flexWrap: "wrap" }}>
+                <span style={{ fontSize: 22, fontWeight: 700, color: "#1d1d1f", letterSpacing: "-0.02em" }}>4.22 / 4.5</span>
+                <span style={{ fontSize: 14, color: "#6e6e73" }}>GPA</span>
+                <span style={{ fontSize: 14, color: "#c7c7cc" }}>·</span>
+                <span style={{ fontSize: 14, color: "#6e6e73" }}>Major: 4.31</span>
+              </div>
+            </div>
+            <div style={{ textAlign: "right" }}>
+              <p style={{ fontSize: 14, color: "#6e6e73" }}>Mar. 2021 – present</p>
+              <p style={{ fontSize: 13, color: "#8e8e93", marginTop: 2 }}>~6th semester</p>
+            </div>
+          </div>
+        </FadeIn>
+      </section>
+
+      <Divider />
+
       {/* ══ PROJECTS ══ */}
       <section id="projects" style={{ maxWidth: 960, margin: "0 auto", padding: "96px 24px" }}>
         <FadeIn><Label>Academic Projects</Label></FadeIn>
@@ -279,31 +304,6 @@ export default function Home() {
             </FadeIn>
           ))}
         </div>
-      </section>
-
-      <Divider />
-
-      {/* ══ EDUCATION ══ */}
-      <section id="education" style={{ maxWidth: 960, margin: "0 auto", padding: "96px 24px" }}>
-        <FadeIn><Label>Education</Label></FadeIn>
-        <FadeIn delay={0.05}>
-          <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
-            <div>
-              <h3 style={{ fontSize: 20, fontWeight: 600, color: "#1d1d1f", letterSpacing: "-0.01em", marginBottom: 4 }}>Dongguk University</h3>
-              <p style={{ fontSize: 15, color: "#6e6e73", marginBottom: 18 }}>B.S. in Chemistry, Seoul</p>
-              <div style={{ display: "flex", alignItems: "baseline", gap: 8, flexWrap: "wrap" }}>
-                <span style={{ fontSize: 22, fontWeight: 700, color: "#1d1d1f", letterSpacing: "-0.02em" }}>4.22 / 4.5</span>
-                <span style={{ fontSize: 14, color: "#6e6e73" }}>GPA</span>
-                <span style={{ fontSize: 14, color: "#c7c7cc" }}>·</span>
-                <span style={{ fontSize: 14, color: "#6e6e73" }}>Major: 4.31</span>
-              </div>
-            </div>
-            <div style={{ textAlign: "right" }}>
-              <p style={{ fontSize: 14, color: "#6e6e73" }}>Mar. 2021 – present</p>
-              <p style={{ fontSize: 13, color: "#8e8e93", marginTop: 2 }}>~6th semester</p>
-            </div>
-          </div>
-        </FadeIn>
       </section>
 
       {/* ══ FOOTER ══ */}
