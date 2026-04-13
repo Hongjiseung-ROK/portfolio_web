@@ -200,29 +200,12 @@ export default function Home() {
         {/* Bullets */}
         <div style={{ display: "flex", flexDirection: "column", gap: 18, marginBottom: 36 }}>
           {[
-            "Used RDKit and Gaussian 09 to automate 3D conformer generation and QST2 transition-state calculations for 18 SN2 reactions.",
-            "Trained a Gradient Boosting model to correct MMFF→DFT bond lengths using RDKit-derived features (1,793 molecules).",
-            "Delta formulation reduced 5-fold CV MAE to 0.0022 Å — a 16% improvement over absolute regression.",
+            "A pipeline that converts SMILES strings into Gaussian 09 input files via RDKit conformer generation, enabling automated DFT geometry optimization and QST2 transition-state searches.",
+            "A delta-learning module that trains a Gradient Boosting model on the MMFF→DFT residual, pre-correcting force-field geometries before they enter the DFT optimization cycle.",
           ].map((text, i) => (
             <FadeIn key={i} delay={0.1 + i * 0.07}><Bullet text={text} /></FadeIn>
           ))}
         </div>
-
-        {/* Stats */}
-        <FadeIn delay={0.35}>
-          <div className="stat-grid">
-            {[
-              { value: "18",    label: "SN2 reactions automated" },
-              { value: "1,793", label: "molecules in dataset" },
-              { value: "16%",   label: "bond MAE reduction" },
-            ].map((s) => (
-              <div key={s.label} style={{ background: "#f5f5f7", borderRadius: 14, padding: "18px 16px" }}>
-                <p style={{ fontSize: 26, fontWeight: 700, color: "#1d1d1f", letterSpacing: "-0.03em", lineHeight: 1, marginBottom: 5 }}>{s.value}</p>
-                <p style={{ fontSize: 11, color: "#6e6e73", lineHeight: 1.4 }}>{s.label}</p>
-              </div>
-            ))}
-          </div>
-        </FadeIn>
 
         {/* Slides */}
         <FadeIn delay={0.45}>
